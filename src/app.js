@@ -44,9 +44,28 @@ $(document).ready(function() {
     $.getJSON('http://api.openweathermap.org/data/2.5/weather?q=' + city + '&units=metric&callback=?', function(data) {
       $('#summary').text(data.main.temp + ' \xB0C in ' + data.name); //This is a pain to find
     });
+
   });
 
-  // $.getJSON('http://api.openweathermap.org/data/2.5/weather?q=' + city + '&units=metric&callback=?', function(data) {
+
+
+  $.ajax({
+    url: 'http://localhost:9292/weather',
+    type:'post',
+    data: JSON.stringify(t),
+    datatype: 'JSON',
+    success: function(data) {
+      alert('success');
+    }
+
+  });
+
+  //   $.postJSON('localhost:9292/weather' + weather);
+  //   (function() {
+  //     var weather = $('#summary').val();
+  //
+  //   });
+  // // $.getJSON('http://api.openweathermap.org/data/2.5/weather?q=' + city + '&units=metric&callback=?', function(data) {
   //   $('#summary').text(data.main.temp + ' \xB0C in ' + data.name); //This is a pain to find
   // });
 
