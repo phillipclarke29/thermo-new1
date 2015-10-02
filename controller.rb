@@ -13,14 +13,14 @@ class HelloWorldApp < Sinatra::Base
     p "#{my_hash}"
   end
 
-  get '/weather' do
+  get '/temperature' do
     "hello"
-  
+    
   end
 
-  post '/weather' do
-    @weather =JSON.parse(request.body.read)
-    p @weather
+  post '/temperature' do
+    session[:temp] =JSON.parse(request.body.read.temperature)
+    session[:temp]
     201
   end
 end
